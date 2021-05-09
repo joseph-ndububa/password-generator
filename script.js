@@ -20,6 +20,8 @@ const specials = {
   confirm: ""
 };
 
+// arrays of characters
+
 const charArray = [uppercase, lowercase, number, specials];
 
 let passChars = [];
@@ -29,47 +31,47 @@ let passArray = [];
 
 // Prompt functions
 
-function lengthPrompt() {
+function lengthConfirm() {
   const length = prompt("Please choose a password length between 8 and 128 characters")
   pwLength = Number(length)
 };
 
-function uppercasePrompt() {
+function uppercaseConfirm() {
   uppercase.confirm = window.confirm("Include upper case characters?")
 };
 
-function lowercasePrompt() {
+function lowercaseConfirm() {
   lowercase.confirm = window.confirm("Include lower case characters?")
 };
 
-function numericPrompt() {
+function numericConfirm() {
   number.confirm = window.confirm("Include numeric characters?")
 };
 
-function specialPrompt() {
+function specialConfirm() {
   specials.confirm = window.confirm("Include special characters?")
 };
 
-function promptSequence() {
+function confirmSequence() {
 
   passChars = [];
 
   passArray = [];
 
-  lengthPrompt();
+  lengthConfirm();
 
   if (pwLength < 8 || pwLength > 128 || Number.isInteger(pwLength) === false) {
     alert("Please input an integer between 8 and 128");
     return;
   }
 
-  uppercasePrompt();
+  uppercaseConfirm();
 
-  lowercasePrompt();
+  lowercaseConfirm();
 
-  numericPrompt();
+  numericConfirm();
 
-  specialPrompt();
+  specialConfirm();
 
   if (uppercase.confirm === false && lowercase.confirm === false && number.confirm === false && specials.confirm === false) {
     alert("Please select at least one character type");
@@ -122,4 +124,4 @@ function writePassword() {
 }
 
 // Add event listener to generate button
-generateBtn.addEventListener("click", promptSequence);
+generateBtn.addEventListener("click", confirmSequence);
