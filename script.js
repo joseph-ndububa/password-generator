@@ -54,7 +54,9 @@ function promptSequence() {
 
   lengthPrompt();
 
-  if (pwLength < 8 || pwLength > 128 || pwLength.isInteger === "false") {
+  console.log(Number.isInteger(pwLength))
+
+  if (pwLength < 8 || pwLength > 128 || Number.isInteger(pwLength) === false) {
     alert("Please input an integer between 8 and 128");
     return;
   }
