@@ -1,45 +1,46 @@
-// arrays of all characters
-const number = {
-  chars: "0123456789"
-  confirm: ""
-}
+// character objects
 
 const uppercase = {
-  chars: "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  chars: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
   confirm: ""
-}
+};
 
 const lowercase = {
-  chars: "abcdefghijklmnopqrstuvwxyz";
+  chars: "abcdefghijklmnopqrstuvwxyz",
   confirm: ""
-}
+};
+
+const number = {
+  chars: "0123456789",
+  confirm: ""
+};
 
 const specials = {
-  chars: "!#$%&*+-./:;<=>?@ ^_~";
+  chars: "!#$%&*+-./:;<=>?@ ^_~",
   confirm: ""
-}
+};
 
 // Prompt functions
 
 function lengthPrompt() {
   const pwLength = prompt("Please choose a password length between 8 and 128 characters")
-}
-
-function lowercasePrompt() {
-  const lower = prompt("Include lower case characters? Input Y for yes, N for no.")
-}
+};
 
 function uppercasePrompt() {
-  const upper = prompt("Include lower case characters? Input Y for yes, N for no.")
-}
+  uppercase.confirm = prompt("Include lower case characters? Input Y for yes, N for no.")
+};
+
+function lowercasePrompt() {
+  lowercase.confirm = prompt("Include lower case characters? Input Y for yes, N for no.")
+};
 
 function numericPrompt() {
-  const numeric = prompt("Include numeric characters? Input Y for yes, N for no.")
-}
+  number.confirm = prompt("Include numeric characters? Input Y for yes, N for no.")
+};
 
 function specialPrompt() {
-  const special = prompt("Include special characters? Input Y for yes, N for no.")
-}
+  specials.confirm = prompt("Include special characters? Input Y for yes, N for no.")
+};
 
 function promptSequence() {
 
@@ -51,15 +52,11 @@ function promptSequence() {
 
   numericPrompt();
 
-  uppercasePrompt();
-
   specialPrompt();
-
-  numericPrompt();
 
   generatePassword()
 
-}
+};
 
 // password generation function
 
