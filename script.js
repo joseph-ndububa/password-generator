@@ -16,7 +16,7 @@ const number = {
 };
 
 const specials = {
-  chars: '!#$%&*,+-./:;<=>?@^_',
+  chars: "!#$%&*,+-./:;<=>?@^_",
   confirm: ""
 };
 
@@ -51,6 +51,10 @@ function specialPrompt() {
 };
 
 function promptSequence() {
+
+  passChars = [];
+
+  passArray = [];
 
   lengthPrompt();
 
@@ -102,6 +106,7 @@ function generatePassword() {
 
   console.log(newPassword)
   return newPassword;
+
 }
 
 // Get references to the #generate element
