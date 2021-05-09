@@ -16,18 +16,26 @@ const number = {
 };
 
 const specials = {
-  chars: "!#$%&*+-./:;<=>?@ ^_~",
+  chars: "!#$%&*+-./,:;<=>?@^_~",
   confirm: ""
 };
+
+const charArray = [uppercase, lowercase, number, specials];
+
+let passChars = [];
+
+let passArray = [];
+
 
 // Prompt functions
 
 function lengthPrompt() {
-  const pwLength = prompt("Please choose a password length between 8 and 128 characters")
+  const length = prompt("Please choose a password length between 8 and 128 characters")
+  pwLength = Number(length)
 };
 
 function uppercasePrompt() {
-  uppercase.confirm = prompt("Include lower case characters? Input Y for yes, N for no.")
+  uppercase.confirm = prompt("Include upper case characters? Input Y for yes, N for no.")
 };
 
 function lowercasePrompt() {
@@ -54,28 +62,32 @@ function promptSequence() {
 
   specialPrompt();
 
-  generatePassword()
+  if (uppercase.confirm)
+
+    writePassword();
 
 };
 
 // password generation function
 
-function generate() {
+function generatePassword() {
 
-  if (lower === "Y" && upper === "Y" && numeric === "Y" && special === "Y") {
-    const selection = string.concat(numberChars, uppercaseChars, lowercaseChars, specialChars)
-  }
+  charArray.forEach(function (charObj) {
+    if (charObj.confirm === "Y" || charObj.confirm === "y") {
+      passChars.push(charObj.chars);
+    }
+  })
 
-  else if (lower === "Y" && upper === "Y" && numeric === "Y" && special === "N") {
-    const selection = string.concat(numberChars, uppercaseChars, lowercaseChars, specialChars)
-  }
-
-
+  passChars = passChars.join("");
 
   for (i = 0; i < pwLength; i++) {
-
+    passArray.push(passChars[Math.floor(Math.random() * (passChars.length) - 1)]);
   }
 
+  console.log(passArray)
+
+  const newPassword = passArray.join("");
+  return newPassword;
 }
 
 // Get references to the #generate element
