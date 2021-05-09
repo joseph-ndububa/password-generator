@@ -35,19 +35,19 @@ function lengthPrompt() {
 };
 
 function uppercasePrompt() {
-  uppercase.confirm = prompt("Include upper case characters? Input Y for yes, N for no.")
+  uppercase.confirm = window.confirm("Include upper case characters?")
 };
 
 function lowercasePrompt() {
-  lowercase.confirm = prompt("Include lower case characters? Input Y for yes, N for no.")
+  lowercase.confirm = window.confirm("Include lower case characters?")
 };
 
 function numericPrompt() {
-  number.confirm = prompt("Include numeric characters? Input Y for yes, N for no.")
+  number.confirm = window.confirm("Include numeric characters?")
 };
 
 function specialPrompt() {
-  specials.confirm = prompt("Include special characters? Input Y for yes, N for no.")
+  specials.confirm = window.confirm("Include special characters?")
 };
 
 function promptSequence() {
@@ -67,9 +67,7 @@ function promptSequence() {
 
   specialPrompt();
 
-  if (uppercase.confirm != "Y" && uppercase.confirm != "y" && uppercase.confirm != "Y" && uppercase.confirm != "y" &&
-    uppercase.confirm != "Y" && uppercase.confirm != "y" &&
-    uppercase.confirm != "Y" && uppercase.confirm != "y") {
+  if (uppercase.confirm === false && lowercase.confirm === false && number.confirm === false && specials.confirm === false) {
     alert("Please select at least one character type");
     return;
   }
@@ -89,7 +87,7 @@ function generatePassword() {
 
   */
   charArray.forEach(function (charObj) {
-    if (charObj.confirm === "Y" || charObj.confirm === "y") {
+    if (charObj.confirm === true) {
       passChars.push(charObj.chars);
     }
   })
