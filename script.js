@@ -16,7 +16,7 @@ const number = {
 };
 
 const specials = {
-  chars: '!#$%&*,+-./:;<=>?@^_~',
+  chars: '!#$%&*,+-./:;<=>?@^_',
   confirm: ""
 };
 
@@ -54,6 +54,11 @@ function promptSequence() {
 
   lengthPrompt();
 
+  if (pwLength < 8 || pwLength > 128 || pwLength.isInteger === "false") {
+    alert("Please input an integer between 8 and 128");
+    return;
+  }
+
   uppercasePrompt();
 
   lowercasePrompt();
@@ -62,21 +67,32 @@ function promptSequence() {
 
   specialPrompt();
 
+  if (uppercase.confirm != "Y" && uppercase.confirm != "y" && uppercase.confirm != "Y" && uppercase.confirm != "y" &&
+    uppercase.confirm != "Y" && uppercase.confirm != "y" &&
+    uppercase.confirm != "Y" && uppercase.confirm != "y") {
+    alert("Please select at least one character type");
+    return;
+  }
+
   writePassword();
 
 };
+
+
 
 // password generation function
 
 function generatePassword() {
 
+  /* iterate through char objects to see if the user wants each character type, then
+  add selected char types to a new array. randomly loop through this new array to create a new password
+
+  */
   charArray.forEach(function (charObj) {
     if (charObj.confirm === "Y" || charObj.confirm === "y") {
       passChars.push(charObj.chars);
     }
   })
-
-  console.log(passChars)
 
   passChars = passChars.join("");
 
@@ -84,9 +100,9 @@ function generatePassword() {
     passArray.push(passChars[Math.floor(Math.random() * (passChars.length - 1))]);
   }
 
-  console.log(passArray)
-
   const newPassword = passArray.join("");
+
+  console.log(newPassword)
   return newPassword;
 }
 
