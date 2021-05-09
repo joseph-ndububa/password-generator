@@ -16,7 +16,7 @@ const number = {
 };
 
 const specials = {
-  chars: "!#$%&*+-./,:;<=>?@^_~",
+  chars: '!#$%&*,+-./:;<=>?@^_~',
   confirm: ""
 };
 
@@ -62,9 +62,7 @@ function promptSequence() {
 
   specialPrompt();
 
-  if (uppercase.confirm)
-
-    writePassword();
+  writePassword();
 
 };
 
@@ -78,10 +76,12 @@ function generatePassword() {
     }
   })
 
+  console.log(passChars)
+
   passChars = passChars.join("");
 
   for (i = 0; i < pwLength; i++) {
-    passArray.push(passChars[Math.floor(Math.random() * (passChars.length) - 1)]);
+    passArray.push(passChars[Math.floor(Math.random() * (passChars.length - 1))]);
   }
 
   console.log(passArray)
