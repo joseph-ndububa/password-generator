@@ -28,28 +28,27 @@ let passChars = [];
 
 let passArray = [];
 
-
 // Prompt functions
 
 function lengthConfirm() {
-  const length = prompt("Please choose a password length between 8 and 128 characters")
-  pwLength = Number(length)
+  const length = prompt("Please choose a password length between 8 and 128 characters");
+  pwLength = Number(length);
 };
 
 function uppercaseConfirm() {
-  uppercase.confirm = window.confirm("Include upper case characters?")
+  uppercase.confirm = window.confirm("Include upper case characters?");
 };
 
 function lowercaseConfirm() {
-  lowercase.confirm = window.confirm("Include lower case characters?")
+  lowercase.confirm = window.confirm("Include lower case characters?");
 };
 
 function numericConfirm() {
-  number.confirm = window.confirm("Include numeric characters?")
+  number.confirm = window.confirm("Include numeric characters?");
 };
 
 function specialConfirm() {
-  specials.confirm = window.confirm("Include special characters?")
+  specials.confirm = window.confirm("Include special characters?");
 };
 
 function confirmSequence() {
@@ -90,8 +89,8 @@ function generatePassword() {
 
   /* iterate through char objects to see if the user wants each character type, then
   add selected char types to a new array. randomly loop through this new array to create a new password
-
   */
+
   charArray.forEach(function (charObj) {
     if (charObj.confirm === true) {
       passChars.push(charObj.chars);
@@ -106,7 +105,6 @@ function generatePassword() {
 
   const newPassword = passArray.join("");
 
-  console.log(newPassword)
   return newPassword;
 
 }
